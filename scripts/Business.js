@@ -1,7 +1,9 @@
 // Function which returns a string of business name and lcoation
 // function take business object as a parameter
 export const Business = ( businessObject ) => {
-    // returns an string interpolation of html elements and business name and lcoation
+    // returns an string interpolation of html elements 
+    // containing template literals of 
+    // business name and lcoation
     return `
         <section class="business">
             <h2 class="business__companyName">${businessObject.companyName}</h2>

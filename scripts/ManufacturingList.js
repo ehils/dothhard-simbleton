@@ -1,22 +1,20 @@
-import { getBusinesses } from "./database.js"
-import { Business } from "./Business.js"
+import { manufacturingBusinesses } from "./database.js";
+import { Manufacturing } from "./Manufacturing.js";
 
-
-// Establish a list of active businesses
-export const BusinessList = () => {
+export const ManufacturingList = () => {
     // call function that gets copy of business array
     // from database
-    const businessArray = getBusinesses()
+    const manufacturingArray = manufacturingBusinesses
     // declare innerhtml variable to be exported to main.js
-    let innerHTML = "<h1>Active Businesses</h1>"
+    let innerHTML = "<h1>Manufacturing Businesses</h1>"
     // Use the .forEach method to iterate through 
     // objects in businessArray
-    businessArray.forEach(
+    manufacturingArray.forEach(
         // for each business object
         (businessObject) => {
             // add the string from Business function
             // to the innerHTML
-            innerHTML += `${Business(businessObject)}`
+            innerHTML += `${Manufacturing(businessObject)}`
         }
     );
     // Return entire innnerhtml string

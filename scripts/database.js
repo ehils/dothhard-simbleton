@@ -145,3 +145,11 @@ const businesses = [
     const copyOfBusinesses = businesses.map(business => ({...business}))
     return copyOfBusinesses
 }
+
+export const newYorkBusinesses = businesses.filter((business) => {
+    return business.addressStateCode === "NY"
+})
+
+export const manufacturingBusinesses = businesses.filter((business) => {
+    return business.companyIndustry === "Manufacturing"
+})
