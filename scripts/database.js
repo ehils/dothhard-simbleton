@@ -141,15 +141,40 @@ const businesses = [
     }
   ]
 //   Returns a copy of array of businesses and purchasing agent information
-  export const getBusinesses = () => {
+export const getBusinesses = () => {
     const copyOfBusinesses = businesses.map(business => ({...business}))
     return copyOfBusinesses
 }
-
+// creates a new array of jsut NY compamnies
 export const newYorkBusinesses = businesses.filter((business) => {
     return business.addressStateCode === "NY"
 })
-
+// creates a new array of jsut manufacturing comapnies
 export const manufacturingBusinesses = businesses.filter((business) => {
-    return business.companyIndustry === "Manufacturing"
+    return business.companyIndustry === "Manufacturing";
 })
+
+// creates a copy of array just containing objects containing purchasingagent property
+export const getPurchasingAgents = () => {
+    const copyOfPurchasingAgents = businesses.map(business => {
+        return Object.create(null, {
+            "firstName": {
+                value: business.purchasingAgent.nameFirst,
+                enumerable: true,
+            },
+            "lastName": {
+                value: business.purchasingAgent.nameLast,
+                enumerable: true,
+            },
+            "company": {
+                value: business.companyName,
+                enumerable: true,
+            },
+            "phoneNumber": {
+                value: business.phoneWork,
+                enumerable: true,
+            },
+        })
+    })
+    return copyOfPurchasingAgents
+}
