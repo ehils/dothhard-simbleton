@@ -140,7 +140,14 @@ const businesses = [
       addressCity: "Watrous",
     }
   ]
-//   Returns a copy of array of businesses and purchasing agent information
+
+export const findCompany = (companyNameSearched) => {
+    const matchingCompany = businesses.find(business => business.companyName === companyNameSearched)
+
+    return matchingCompany
+}
+
+  //   Returns a copy of array of businesses and purchasing agent information
 export const getBusinesses = () => {
     const copyOfBusinesses = businesses.map(business => ({...business}))
     return copyOfBusinesses
@@ -157,9 +164,11 @@ export const manufacturingBusinesses = businesses.filter((business) => {
 // creates a copy of array just containing objects containing purchasingagent property
 export const getPurchasingAgents = () => {
     const copyOfPurchasingAgents = businesses.map(business => {
+        // iterates through the objects of the businesses array
+        // pulls select properties to create a new object
         return Object.create(null, {
             "firstName": {
-                value: business.purchasingAgent.nameFirst,
+                value: business.purchasingAgent.nameFirst, 
                 enumerable: true,
             },
             "lastName": {
@@ -176,5 +185,6 @@ export const getPurchasingAgents = () => {
             },
         })
     })
+    // returns array copy of new objects
     return copyOfPurchasingAgents
 }

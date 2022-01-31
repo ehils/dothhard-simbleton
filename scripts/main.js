@@ -9,3 +9,4 @@ const applicationHTML = `${BusinessList()}  ${ManufacturingList()} ${NewYorkList
 const contentTarget = document.querySelector(".businesses")
 // import business list html string into index.html
 contentTarget.innerHTML = applicationHTML
+
